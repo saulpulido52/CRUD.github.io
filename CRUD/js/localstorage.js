@@ -26,22 +26,7 @@ const agregarUsuarios = () =>{
 function mostrarUsuarios(){
     cuerpoTabla.innerHTML = "";
     usuarios.forEach(usuario => {
-        cuerpoTabla.innerHTML += `
-        </tr>
-        <th scope="row">${usuario.id}</th>
-            <td>${usuario.nombre}</td>
-            <td>${usuario.apellido}</td>
-            
-            <td> <button 
-            type="button col" 
-            class="btn btn-primary" 
-            onclick="buscar()">Editar</button> 
-            <button type="button" 
-            class="col btn btn-primary" 
-            onclick="eliminarUsuarios('${usuario.id}')">Eliminar</button> </td>
-          </tr>
-        `
-        
+        cuerpoTabla.innerHTML += `</tr><th scope="row">${usuario.id}</th><td>${usuario.nombre}</td><td>${usuario.apellido}</td><td><button type="button col" class="btn btn-primary" onclick="editarUsuario('${usuario.nombre.apellido}')">Editar</button><button type="button" class="col btn btn-primary" onclick="eliminarUsuarios('${usuario.id}')">Eliminar</button> </td></tr>`
     });
     
 }
@@ -58,4 +43,15 @@ function eliminarUsuarios (id) {
 
   localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
+}
+function editarUsuario(nombre, apellido){
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].id === id) {
+          usuarios[i].nombre = nombre;
+          usuarios[i].apellido = apellido;
+          break;
+        }
+      }
+    
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
 }
