@@ -15,4 +15,4 @@ main {
 
 
 footer {
-    position:fixed; bottom:0; z-index:999999; }
+    display: block;  }
