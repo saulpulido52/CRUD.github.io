@@ -1,8 +1,10 @@
 const nombre = document.getElementById("nombreInput");
 const apellido = document.getElementById("apellidoInput");
-
 const usuarios = JSON.parse(localStorage.getItem("usuarios")  ) || [];
 const cuerpoTabla = document.getElementById("cuerpoTabla");
+const editandoUsuario = document.getElementById("editandoUsuario");
+const btnEdit = document.getElementById("editando");
+let editorUsuario = null;
 
 
 console.log(usuarios);
@@ -26,7 +28,7 @@ const agregarUsuarios = () =>{
 function mostrarUsuarios(){
     cuerpoTabla.innerHTML = "";
     usuarios.forEach(usuario => {
-        cuerpoTabla.innerHTML += `</tr><th scope="row">${usuario.id}</th><td>${usuario.nombre}</td><td>${usuario.apellido}</td><td><button type="button col" class="btn btn-primary" onclick="editarUsuario('${usuario.nombre.apellido}')">Editar</button><button type="button" class="col btn btn-primary" onclick="eliminarUsuarios('${usuario.id}')">Eliminar</button> </td></tr>`
+        cuerpoTabla.innerHTML += `</tr><th scope="row">${usuario.id}</th><td>${usuario.nombre}</td><td>${usuario.apellido}</td><td><button type="button col" class="btn btn-warning" onclick="editarUsuario(nombre,apellido)">Editar</button><button type="button" class="col btn btn-primary" onclick="eliminarUsuarios('${usuario.id}')">Eliminar</button> </td></tr>`
     });
     
 }
@@ -44,14 +46,20 @@ function eliminarUsuarios (id) {
   localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
 }
-function editarUsuario(nombre, apellido){
+const editarUsuario = (id) => {
+    editandoUsuario.textContent= "Editando Usuario";
+    mostrarUsuarios();
     for (let i = 0; i < usuarios.length; i++) {
         if (usuarios[i].id === id) {
-          usuarios[i].nombre = nombre;
-          usuarios[i].apellido = apellido;
-          break;
+         usuarios.nombre= nombre.value;
+         usuarios.apellido= apellido.value;
+          
         }
       }
+    btnEdit.textContent="Editar";
+    btnEdit.classList.add("btn-warning");
     
-      localStorage.setItem('usuarios', JSON.stringify(usuarios));
-}
+
+    
+  };
+  
