@@ -32,8 +32,7 @@ const agregarUsuarios = () => {
 function mostrarUsuarios() {
   cuerpoTabla.innerHTML = "";
   usuarios.forEach((usuario) => {
-    cuerpoTabla.innerHTML += `</tr><th scope="row">${usuario.id}</th><td>${usuario.nombre}</td>
-    <td>${usuario.apellido}</td><td><button type="button col" class="btn ${editorUsuario === usuario ? "btn-primary" : "btn-warning"}" onclick="editarUsuario('${usuario.id}')">${editorUsuario === usuario ? "Guardar" : "Editar"}</button><button type="button" class="col btn btn-primary" onclick="eliminarUsuarios('${usuario.id}')">Eliminar</button> </td></tr>`;
+    cuerpoTabla.innerHTML += `</tr><th scope="row">${usuario.id}</th><td>${usuario.nombre}</td><td>${usuario.apellido}</td><td><button type="button col" class="btn ${editorUsuario === usuario ? "btn-primary" : "btn-warning"}" onclick="editarUsuario('${usuario.id}')">${editorUsuario === usuario ? "Guardar" : "Editar"}</button><button type="button" class="col btn btn-primary" onclick="eliminarUsuarios('${usuario.id}')">Eliminar</button> </td></tr>`;
   });
 }
 
