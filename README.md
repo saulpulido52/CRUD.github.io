@@ -1,17 +1,10 @@
-[TOC]
+### CRUD
 
-# Aplicación CRUD en JavaScript usando LocalStorage
-
-- Se creo una aplicación CRUD básica usando JavaScript y la base de datos LocalStorage. LocalStorage es una forma de almacenamiento de datos en el navegador del cliente, lo que significa que los datos se almacenan en la máquina del usuario y no en un servidor externo.
-
-
-
-### Paso 1: Crear el esqueleto de la aplicación
-- Para comenzar, crearemos la estructura básica de nuestra aplicación. Crearemos un archivo HTML, un archivo CSS y un archivo JavaScript.
-
-- Para nuestro archivo HTML, crearemos un contenedor donde se mostrarán los registros y un formulario para agregar o editar registros.
-
-### Paso 2: Almacenar registros en LocalStorage
-- En nuestro archivo JavaScript, primero declararemos una variable llamada registros que será un array vacío. Luego, agregaremos una función llamada agregarRegistro() que obtendrá los datos del formulario y los agregará al array registros. Finalmente, usaremos la función localStorage.setItem() para almacenar el array registros en LocalStorage.
-
-
+El código parece ser una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) que utiliza JavaScript, HTML y almacenamiento local para almacenar datos de usuario.
+Aquí hay un resumen de lo que hace el código:
+- Define variables para almacenar referencias a varios elementos HTML, un arreglo vacío para contener los datos de usuario y una variable para llevar un seguimiento del usuario que se está editando actualmente.
+- Define una función ‘agregarUsuarios’ para crear un nuevo objeto de usuario a partir de los valores de entrada y agregarlo al arreglo de usuarios, luego almacenar el arreglo actualizado en el almacenamiento local.
+- Define una función ‘mostrarUsuarios’ para renderizar los datos de usuario en una tabla HTML.
+- Define una función ‘eliminarUsuarios’ para eliminar un usuario del arreglo de usuarios y del almacenamiento local.
+- Define una función ‘editarUsuario’ para actualizar el formulario con los datos del usuario seleccionado, cambiar la etiqueta del botón a "Guardar" y cambiar el color del botón a azul.
+- Agrega escuchadores de eventos para llamar a estas funciones cuando se interactúa con ciertos elementos HTML
